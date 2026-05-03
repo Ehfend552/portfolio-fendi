@@ -453,3 +453,23 @@ footer {
     padding: 10px 15px;
   }
 }
+
+#video-bg {
+   position: fixed;
+   top: 0;
+   left: 0;
+   min-width: 100%;
+   min-height: 100%
+   z-index: -1;
+   opacity: 0.25;
+   object-fit: cover;
+}
+
+body {
+   background: #0a0a0a;
+}
+
+
+
+
+
