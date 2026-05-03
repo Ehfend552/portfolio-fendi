@@ -467,16 +467,21 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Biar ga gepeng */
-  z-index: -1; /* Biar ketumpuk konten */
-  pointer-events: none; /* Biar bisa diklik konten di atasnya */
+  object-fit: cover; /* Biar gambar ga gepeng */
+  z-index: -1; /* Biar di belakang konten */
+  pointer-events: none; /* Biar konten bisa diklik */
 }
 
-/* BIKIN KONTEN TETEP KEBACA */
+/* Biar teks TUAN tetep kebaca */
+body {
+  margin: 0;
+  color: white;
+}
+
 .content {
   position: relative;
   z-index: 1;
-  background: rgba(0,0,0,0.4); /* Kasih gelap dikit biar teks jelas */
+  background: rgba(0,0,0,0.5); /* Lapisan gelap biar teks kontras */
   min-height: 100vh;
-  color: white;
+  padding: 20px;
 }
