@@ -27,7 +27,7 @@
     <!-- 1. HERO: BAGIAN PEMBUKA -->
     <section class="hero">
       <img src="foto-tuan.jpg" alt="Foto Tuan Fendi" />
-      <h1>FENDI SETIAWAN</h1>
+      <h1 id="typing-text"></h1>
       <p><span class="typing"></span></p>
       <a href="#kontak"><button>Hubungi Saya</button></a>
     </section>
@@ -266,5 +266,45 @@
     "retina_detect": true
   });
   </script>
+    <!-- SCRIPT TYPEWRITER -->
+<script>
+const textArray = [
+  "FENDI SETIAWAN",
+  "WEB DEVELOPER",
+  "NARUTO FANS 👑"
+];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingElement = document.getElementById("typing-text");
+
+function typeWriter() {
+  const currentText = textArray[textIndex];
+
+  if (!isDeleting && charIndex < currentText.length) {
+    // Ngetik
+    typingElement.innerHTML = currentText.substring(0, charIndex + 1) + '<span class="cursor">|</span>';
+    charIndex++;
+    setTimeout(typeWriter, 100); // Kecepatan ngetik
+  }
+  else if (isDeleting && charIndex > 0) {
+    // Hapus
+    typingElement.innerHTML = currentText.substring(0, charIndex - 1) + '<span class="cursor">|</span>';
+    charIndex--;
+    setTimeout(typeWriter, 50); // Kecepatan hapus
+  }
+  else {
+    // Ganti kalimat
+    isDeleting =!isDeleting;
+    if (!isDeleting) {
+      textIndex = (textIndex + 1) % textArray.length;
+    }
+    setTimeout(typeWriter, 1200); // Jeda sebelum hapus/ngetik lagi
+  }
+}
+
+// Jalanin pas web dibuka
+document.addEventListener("DOMContentLoaded", typeWriter);
+</script>
   </body>
 </html>
