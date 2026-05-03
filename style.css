@@ -460,40 +460,23 @@ footer {
   }
 }
 
-/* FIX GIF FULL LAYAR DI HP */
+/* BIKIN GAMBAR JADI BACKGROUND FULLSCREEN */
 #video-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;      /* Ganti 100% jadi 100vw */
-    height: 100vh;     /* Ganti 100% jadi 100vh */
-    z-index: -2;       /* Turunin lagi biar ga nabrak */
-    object-fit: cover;
-    opacity: 0.35;     /* Turunin dikit biar teks kebaca */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Biar ga gepeng */
+  z-index: -1; /* Biar ketumpuk konten */
+  pointer-events: none; /* Biar bisa diklik konten di atasnya */
 }
 
-/* KASIH LAYER HITAM BIAR TEKS KONTRAK TUAN */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Overlay hitam 60% */
-    z-index: -1;
-}
-
-/* BIKIN TEKS ABOUT ME PUTIH + ADA SHADOW */
-.about p, .about h2 {
-    color: #fff !important; /* Paksa jadi putih */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Kasih bayangan */
-    position: relative;
-    z-index: 1;
-}
-
-/* BIAR JUDUL "Tentang Saya" NYALA KAYAK CHAKRA */
-.about h2, .skills h2, .projects h2 {
-    color: #ff9d00 !important;
-    text-shadow: 0 0 10px #ff6600, 0 0 20px #ff0000;
+/* BIKIN KONTEN TETEP KEBACA */
+.content {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.4); /* Kasih gelap dikit biar teks jelas */
+  min-height: 100vh;
+  color: white;
 }
