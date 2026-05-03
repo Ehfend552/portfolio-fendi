@@ -1,0 +1,455 @@
+/* ========================================
+   1. SETUP & VARIABLE WARNA SULTAN
+   ======================================== */
+:root {
+  /* ========================================
+   PRELOADER SULTAN
+   ======================================== */
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+  }
+
+  .loader {
+    text-align: center;
+  }
+
+  .loader h2 {
+    color: var(--text-accent);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    animation: pulse 1.5s infinite;
+  }
+
+  .loading-bar {
+    width: 200px;
+    height: 4px;
+    background: var(--bg-input);
+    border-radius: 10px;
+    margin: 0 auto 15px auto;
+    overflow: hidden;
+  }
+
+  .loading-bar::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: var(--text-accent);
+    border-radius: 10px;
+    animation: loading 1s infinite;
+  }
+
+  .loader p {
+    color: var(--text);
+    opacity: 0.7;
+    font-size: 14px;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(350%);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  --bg: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-input: #0f3460;
+  --text: #ffffff;
+  --text-accent: #ffd700;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body.light {
+  --bg: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-input: #e8e8e8;
+  --text: #1a1a2e;
+  --text-accent: #b8860b;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition:
+    background 0.3s,
+    color 0.3s;
+  line-height: 1.6;
+}
+
+/* ========================================
+   2. HERO SECTION
+   ======================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--text-accent);
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--text-accent);
+  margin: 10px 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  min-height: 30px;
+}
+
+.hero button {
+  background: var(--text-accent);
+  color: var(--bg);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s;
+}
+
+.hero button:hover {
+  transform: scale(1.05);
+}
+
+/* TYPING EFFECT KURSOR */
+.typing {
+  border-right: 3px solid var(--text-accent);
+  padding-right: 5px;
+  animation: blink 0.7s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ========================================
+   3. SECTION UMUM
+   ======================================== */
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section h2 {
+  text-align: center;
+  color: var(--text-accent);
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: background 0.3s;
+}
+
+/* ========================================
+   4. ABOUT SECTION
+   ======================================== */
+.about p {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   5. SKILLS SECTION
+   ======================================== */
+.skill-list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  background: var(--bg-input);
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: 1px solid var(--text-accent);
+  font-weight: bold;
+}
+
+/* ========================================
+   6. PROJECT SECTION
+   ======================================== */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px 15px 0 0;
+}
+
+.project-card h3 {
+  color: var(--text-accent);
+  padding: 15px 15px 5px 15px;
+}
+
+.project-card p {
+  padding: 0 15px 15px 15px;
+  opacity: 0.9;
+}
+
+/* ========================================
+   7. CONTACT & FORM SECTION
+   ======================================== */
+.contact {
+  text-align: center;
+}
+
+.qr-section {
+  margin: 25px 0;
+}
+
+.qr-section img {
+  width: 180px;
+  height: 180px;
+  border: 4px solid var(--text-accent);
+  border-radius: 15px;
+  background: white;
+  padding: 10px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-input);
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.05);
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+}
+
+/* FORM */
+.form-kontak form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  background: var(--bg-input);
+  border: 1px solid var(--text-accent);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+button {
+  background: var(--text-accent);
+  color: var(--bg);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* ========================================
+   8. FOOTER
+   ======================================== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--bg-input);
+  opacity: 0.7;
+}
+
+/* ========================================
+   9. FITUR SULTAN - TOMBOL FLOATING
+   ======================================== */
+#playBtn,
+#toTop,
+#themeBtn {
+  position: fixed;
+  z-index: 999;
+  background: var(--text-accent);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: transform 0.2s;
+}
+
+#playBtn:hover,
+#toTop:hover,
+#themeBtn:hover {
+  transform: scale(1.1);
+}
+
+#playBtn {
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 20px;
+  border-radius: 25px;
+}
+
+#toTop {
+  bottom: 80px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  display: none;
+}
+
+#themeBtn {
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+/* ========================================
+   10. ANIMASI SCROLL
+   ======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   11. RESPONSIVE HP
+   ======================================== */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .skill-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #playBtn {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}

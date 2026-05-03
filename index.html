@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Fendi Setiawan</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- PRELOADER SULTAN -->
+    <div id="preloader">
+      <div class="loader">
+        <h2>FENDI SETIAWAN</h2>
+        <div class="loading-bar"></div>
+        <p>Loading Portfolio...</p>
+      </div>
+    </div>
+    <!-- 1. HERO: BAGIAN PEMBUKA -->
+    <section class="hero">
+      <img src="foto-tuan.jpg" alt="Foto Tuan Fendi" />
+      <h1>FENDI SETIAWAN</h1>
+      <p><span class="typing"></span></p>
+      <a href="#kontak"><button>Hubungi Saya</button></a>
+    </section>
+
+    <!-- 2. ABOUT: TENTANG TUAN -->
+    <section class="about fade-in">
+      <h2>Tentang Saya</h2>
+      <p>
+        Halo! Saya Fendi Setiawan, tukang ngoding dari Tajurhalang. Suka bikin
+        web yang rapih dan gampang dipake. Lagi belajar HTML, CSS, JavaScript
+        biar jadi people pro digital.
+      </p>
+    </section>
+
+    <!-- 3. SKILL: TUAN JAGO APA -->
+    <section class="skills fade-in">
+      <h2>Skill Saya</h2>
+      <div class="skill-list">
+        <div class="skill-item">HTML</div>
+        <div class="skill-item">CSS</div>
+        <div class="skill-item">JavaScript</div>
+      </div>
+    </section>
+
+    <!-- 4. PROJECT: KARYA TUAN -->
+    <section class="projects fade-in">
+      <h2>Project Saya</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400"
+            alt="Project 1"
+          />
+          <h3>KOPI TUAN FENDI</h3>
+          <p>Web katalog kopi dengan keranjang belanja</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. KONTAK: CARA HUBUNGIN TUAN -->
+    <section class="contact fade-in" id="kontak">
+      <h2>Hubungi Saya</h2>
+      <p>Email: setiawanfendi459@gmail.com</p>
+
+      <!-- QR CODE FENDI SETIAWAN -->
+      <div class="qr-section">
+        <p>Scan buat buka di HP TUAN:</p>
+        <img
+          src="qr-portfolio-fendi.png"
+          alt="QR Code Portofolio Fendi"
+          width="150"
+        />
+      </div>
+
+      <!-- SOSMED TUAN -->
+      <div class="social-links">
+        <a href="https://wa.me/6285718509645" target="_blank" class="wa">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+            alt="WhatsApp"
+          />
+          WhatsApp
+        </a>
+        <a
+          href="https://www.instagram.com/fen_di552?igsh=bjk1dXo5aWZpeGp0"
+          target="_blank"
+          class="ig"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+            alt="Instagram"
+          />
+          Instagram
+        </a>
+      </div>
+    </section>
+
+    <!-- 6. FORM KONTAK LANGSUNG KE WA -->
+    <section class="form-kontak fade-in">
+      <h2>Kirim Pesan Langsung</h2>
+      <form id="formPesan">
+        <input type="text" id="nama" placeholder="Nama Kamu" required />
+        <input type="email" id="email" placeholder="Email Kamu" required />
+        <textarea
+          id="pesan"
+          placeholder="Mau ngomongin project apa TUAN?"
+          rows="4"
+          required
+        ></textarea>
+        <button type="submit">Kirim ke WhatsApp TUAN</button>
+      </form>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer>
+      <p>© 2026 Tuan Fendi. Dibuat sambil ngopi ☕</p>
+    </footer>
+
+    <!-- FITUR-FITUR SULTAN -->
+    <button id="playBtn">▶️ Play Musik</button>
+    <button id="toTop">⬆️</button>
+    <button id="themeBtn">🌙</button>
+
+    <audio id="bgMusic" loop>
+      <source src="backsound.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- SEMUA SCRIPT DIGABUNG DI SINI -->
+    <script>
+      // 1. TYPING EFFECT
+      const texts = [
+        "Web Developer & Ngoding Enjoyer",
+        "Sultan Tajurhalang 👑",
+        "Bikin Web 2 Juta++",
+        "Available for Hire!",
+      ];
+      let count = 0,
+        index = 0;
+      function type() {
+        if (count === texts.length) count = 0;
+        let currentText = texts[count];
+        let letter = currentText.slice(0, ++index);
+        document.querySelector(".typing").textContent = letter;
+        if (letter.length === currentText.length) {
+          count++;
+          index = 0;
+          setTimeout(type, 2000);
+        } else {
+          setTimeout(type, 100);
+        }
+      }
+      type();
+
+      // 2. MUSIK BACKGROUND
+      const music = document.getElementById("bgMusic");
+      const playBtn = document.getElementById("playBtn");
+      music.volume = 0.3;
+      playBtn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          playBtn.textContent = "⏸️ Pause Musik";
+        } else {
+          music.pause();
+          playBtn.textContent = "▶️ Play Musik";
+        }
+      });
+
+      // 3. BACK TO TOP
+      const toTop = document.getElementById("toTop");
+      window.addEventListener("scroll", () => {
+        toTop.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      toTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // 4. DARK/LIGHT MODE
+      const themeBtn = document.getElementById("themeBtn");
+      const body = document.body;
+      if (localStorage.getItem("theme") === "light") {
+        body.classList.add("light");
+        themeBtn.textContent = "☀️";
+      }
+      themeBtn.addEventListener("click", () => {
+        body.classList.toggle("light");
+        if (body.classList.contains("light")) {
+          themeBtn.textContent = "☀️";
+          localStorage.setItem("theme", "light");
+        } else {
+          themeBtn.textContent = "🌙";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // 5. ANIMASI SCROLL
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // 6. FORM WA AUTO-ISI
+      document
+        .getElementById("formPesan")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          let nama = document.getElementById("nama").value;
+          let email = document.getElementById("email").value;
+          let pesan = document.getElementById("pesan").value;
+          let text = `Halo TUAN Fendi! %0ASaya ${nama} %0AEmail: ${email} %0A%0APesan: ${pesan}`;
+          window.open(`https://wa.me/6285718509645?text=${text}`, "_blank");
+        });
+    </script>
+        <script>
+        // PRELOADER
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1000); // Loading 1 detik
+        });
+
+        // SEMUA SCRIPT TUAN YANG LAIN ADA DI BAWAH INI...
+        // Typing, Musik, dll...
+    </script>
+</body>
+  </body>
+</html>
