@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- PARTIKEL CHAKRA BACKGROUND -->
+    <div id="particles-js"></div>
+    
     <!-- GAMBAR BACKGROUND WEBP PUNYA TUAN -->
 <img src="naruto-sasuke.webp" 
      id="video-bg" 
@@ -238,6 +241,30 @@
         // SEMUA SCRIPT TUAN YANG LAIN ADA DI BAWAH INI...
         // Typing, Musik, dll...
     </script>
-</body>
+
+      <!-- SCRIPT PARTIKEL CHAKRA -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {"value": 35, "density": {"enable": true, "value_area": 800}},
+      "color": {"value": ["#ff8c00","#00bfff","#ffffff"]}, // Oranye Kyuubi + Biru Chakra + Putih
+      "shape": {"type": "circle"},
+      "opacity": {"value": 0.6, "random": true},
+      "size": {"value": 3, "random": true},
+      "line_linked": {"enable": false},
+      "move": {
+        "enable": true,
+        "speed": 1.2,
+        "direction": "top",
+        "random": true,
+        "straight": false,
+        "out_mode": "out"
+      }
+    },
+    "interactivity": {"detect_on": "canvas", "events": {"onhover": {"enable": false}}},
+    "retina_detect": true
+  });
+  </script>
   </body>
 </html>
